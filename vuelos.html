@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vuelos hacia Buenos Aires</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fa;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #00509e;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      margin-bottom: 25px;
+      font-size: 16px;
+    }
+
+    .flight-info {
+      display: none;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f1f9ff;
+    }
+
+    h2 {
+      color: #0a3d62;
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Vuelos hacia Buenos Aires 🌎</h1>
+
+    <label for="citySelect">Selecciona una ciudad de origen:</label>
+    <select id="citySelect" onchange="showFlightInfo()">
+      <option value="">-- Selecciona una ciudad --</option>
+      <option value="madrid">Madrid (MAD)</option>
+      <option value="miami">Miami (MIA)</option>
+      <option value="santiago">Santiago de Chile (SCL)</option>
+    </select>
+
+    <div id="madrid" class="flight-info">
+      <h2>✈️ Desde Madrid (MAD)</h2>
+      <ul>
+        <li>Aerolíneas: Iberia, Aerolíneas Argentinas, Air Europa, LATAM</li>
+        <li>Duración estimada: 13 horas (vuelo directo)</li>
+        <li>Precio aproximado: desde 950 €</li>
+        <li><a href="https://www.flightconnections.com/es/vuelos-desde-madrid-mad-a-buenos-aires-eze" target="_blank">Ver rutas disponibles</a></li>
+        <li><a href="https://www.google.com/travel/flights?q=vuelos%20desde%20madrid%20a%20buenos%20aires" target="_blank">Buscar en Google Vuelos</a></li>
+      </ul>
+    </div>
+
+    <div id="miami" class="flight-info">
+      <h2>🛫 Desde Miami (MIA)</h2>
+      <ul>
+        <li>Aerolíneas: Aerolíneas Argentinas, American Airlines, Copa Airlines, LATAM</li>
+        <li>Duración estimada: 8h 40min a 9h</li>
+        <li>Precio aproximado: desde USD 700</li>
+        <li><a href="https://www.flightconnections.com/es/vuelos-desde-miami-mia-a-buenos-aires-eze" target="_blank">Ver rutas disponibles</a></li>
+        <li><a href="https://www.google.com/travel/flights?q=vuelos%20desde%20miami%20a%20buenos%20aires" target="_blank">Buscar en Google Vuelos</a></li>
+      </ul>
+    </div>
+
+    <div id="santiago" class="flight-info">
+      <h2>🇨🇱 Desde Santiago de Chile (SCL)</h2>
+      <ul>
+        <li>Aerolíneas: LATAM, JetSMART, Sky Airline, Aerolíneas Argentinas</li>
+        <li>Duración estimada: 2h 15min a 2h 45min</li>
+        <li>Precio aproximado: desde USD 100</li>
+        <li><a href="https://www.flightconnections.com/es/vuelos-desde-santiago-de-chile-scl-a-buenos-aires-eze" target="_blank">Ver rutas disponibles</a></li>
+        <li><a href="https://www.google.com/travel/flights?q=vuelos%20desde%20santiago%20a%20buenos%20aires" target="_blank">Buscar en Google Vuelos</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function showFlightInfo() {
+      const cities = ["madrid", "miami", "santiago"];
+      const selected = document.getElementById("citySelect").value;
+
+      cities.forEach(city => {
+        document.getElementById(city).style.display = "none";
+      });
+
+      if (selected) {
+        document.getElementById(selected).style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
